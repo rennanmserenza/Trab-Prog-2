@@ -1,0 +1,10 @@
+Joao da Silva Santos           		345678 		2.30 		4.50 		9.00 		2.00
+Mariana Teixeira da Silva      		758756 		5.80 		5.00 		2.00 		7.00
+Scarlette Johansson            		345210 		5.90 		10.00 		10.00 		0.00
+Juliana Pereira Trevo          		987654 		6.50 		7.50 		7.00 		0.00
+Joaquim da Silva Santos        		145678 		6.30 		9.50 		9.00 		0.00
+Ana Teixeira da Silva          		658756 		8.80 		3.00 		2.00 		7.00
+Hudson Johansson               		445210 		5.90 		10.00 		10.00 		10.00
+Juliana Pereira Trevo          		982654 		9.50 		0.00 		7.00 		9.00
+Rennan Mendes Serenza          		456489 		8.10 		9.00 		5.00 		6.00
+Wesley fodase                  		123456 		4.60 		4.60 		4.60 		4.60
