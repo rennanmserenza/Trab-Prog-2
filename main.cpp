@@ -10,7 +10,7 @@ int main() {
     int i = 0, opt = 0;
     tipoAluno alunos[MAX], aluno[MAX];
     
-    system("cls");
+    system("cls || clear");
     size();
 
     do {    

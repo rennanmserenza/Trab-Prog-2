@@ -57,7 +57,7 @@ void cadastraAluno(tipoAluno &v, int i) {
     
     scanf(" %[^0123456789\t]", v.nome);
     removerSpacos(v.nome);
-
+    
     scanf(" %d %lf %lf %lf %lf", &v.RA, &v.P1, &v.P2, &v.T, &v.PO);
     mediaList(v);
     v.ordem_cadastro = i + 1;
@@ -71,8 +71,7 @@ void buscaAluno(tipoAluno *v, int i) {
 
     printf("\nDigite o nome que deseja pesquisar: ");
     
-    fflush(stdin);
-    scanf("%[^\n]", nomeAluno);
+    scanf(" %[^\n]", nomeAluno);
 
     for (int j = 0; j < i; j++) {
         if (strcmp(nomeAluno, v[i].nome)){            
@@ -93,8 +92,7 @@ void lerArquivo(tipoAluno *v, int &i) {
     // abrindo um arquivo para leitura
     printf("\nInforme o nome do arquivo que deseja ler: ");
 
-    fflush(stdin);
-    scanf("%[^\n]", nomeArquivo);
+    scanf(" %[^\n]", nomeArquivo);
     
     ptrarq = fopen(nomeArquivo, "r");
 
@@ -160,7 +158,6 @@ void verificaAluno(FILE *pt, tipoAluno *v, int i, char *status) {
     }
 
     fprintf(pt, "\nTotal de %d alunos %s.", k, status);
-
 }
 void encerrarPrograma(tipoAluno *v, int i) {
     int j;
