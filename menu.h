@@ -5,5 +5,5 @@
 int get_size(const char *name);
 
 void size();
-void sleepClear();
+void sleepClear(int x);
 void menu(int &option);

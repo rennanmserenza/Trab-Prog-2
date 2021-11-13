@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
+#include "menu.h"
 #define MAX 100
 
 
@@ -11,10 +13,12 @@ struct tipoAluno {
     char nome[MAX], state[MAX];
 };
 
+void time(int i);
 void removerSpacos(char str[]);
 
 void mediaList(tipoAluno &v);
-void insertOrdenado(tipoAluno *v, tipoAluno &q, int i);
+void selectSort(tipoAluno *v, tipoAluno &q, int i);
+void insertSort(tipoAluno *v, tipoAluno &q, int i);
 
 void cadastraAluno(tipoAluno &v, int i);
 void buscaAluno(tipoAluno *v, int i);

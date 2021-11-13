@@ -23,9 +23,9 @@ void size() {
         printf("!!!Existe um arquivo atual.txt com dados salvos nele!!!\n");
     }
 }
-void sleepClear(){
+void sleepClear(int x){
     struct timespec tim, tim2;
-        tim.tv_sec  = 3;
+        tim.tv_sec  = x;
         tim.tv_nsec = 0;
         
         nanosleep(&tim, &tim2);        

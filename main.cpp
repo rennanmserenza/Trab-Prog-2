@@ -3,7 +3,6 @@
                 2021 - 2 Periodo - Noturno
 */
 
-#include "menu.h"
 #include "alunos.h"
 
 int main() {
@@ -23,7 +22,7 @@ int main() {
                 alunos[i] = aluno[0];
             }
             else {
-                insertOrdenado(alunos, aluno[0], i);
+                insertSort(alunos, aluno[0], i);
             }
             i++;
         }
@@ -51,7 +50,10 @@ int main() {
             printf("\nO valor inserido nao corresponde a um valor do menu, escolha novamente!!!\n");
         }            
         // Timer para a limpeza de tela após as operações serem realizadas
-        sleepClear();
+        
+        if (opt != 2) {
+            sleepClear(3);
+        }
 
     } while (opt != 6);
 

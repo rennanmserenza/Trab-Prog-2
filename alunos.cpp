@@ -1,5 +1,17 @@
 #include "alunos.h"
 
+void time(int i) {
+    int time = 0;
+
+    if (0 > i && i < 10) {
+        time = 8;
+    }
+    else if (i > 10) {
+        time = 10;
+    }
+
+    sleepClear(time);
+}
 void removerSpacos(char str[]) {
     int i, j = 1;
     for (i = 1; str[i]; i++) {
@@ -35,14 +47,44 @@ void mediaList(tipoAluno &v) {
     }
 
 }
-void insertOrdenado(tipoAluno *v, tipoAluno &q, int i) {
+void selectSort(tipoAluno *v, int i) {
+    int j, k, min;
+    tipoAluno aux;
+    
+    for (j = 0; j < i - 1; j++) {
+        min = j;
+
+        for (k = j + 1; k < i; k++) {
+            if (strcmp(v[k].nome, v[min].nome) < 0) {
+                min = k;
+            }
+            else if (strcmp(v[k].nome, v[min].nome) == 0) {
+                if (v[min].RA > v[k].RA) {
+                    min = k;
+                }
+                else if (v[min].RA == v[k].RA) {
+                    if (v[min].media < v[k].media) {
+                        min = k;
+                    }
+                }
+            }
+
+        }
+
+        aux = v[min];
+        v[min] = v[j];
+        v[j] = aux;
+
+    }
+}
+void insertSort(tipoAluno *v, tipoAluno &q, int i) {
     int j;
     
     for (j = i - 1; j >= 0 && strcmp(q.nome, v[j].nome) < 0; j--) {
-        v[j+1] = v[j];                                                              // strcmp(x, y)  x > y
-    }                                                                               // retornando < 0 | x < y
-    v[j + 1] = q;                                                                   // retornando == 0 | x == y
-                                                                                    // retornando > 0 | x > y
+        v[j+1] = v[j];                                                      // strcmp(x, y)  x > y
+    }                                                                       // retornando < 0 | x < y
+    v[j + 1] = q;                                                           // retornando == 0 | x == y
+                                                                            // retornando > 0 | x > y
     printf("Aluno inserido com sucesso!\n");
 
 }
@@ -66,22 +108,54 @@ void cadastraAluno(tipoAluno &v, int i) {
 
 }
 void buscaAluno(tipoAluno *v, int i) {
+    int j, x, y,  T = 0;
+    char lowerBusca, lowerAluno;
     int resultadosEncontrados = 0;
-    char nomeAluno[MAX];
+    char nomeBusca[MAX], nomeAluno[MAX];
+    int tamNomeAlunoBusca, tamNomeAlunoLista;
 
     printf("\nDigite o nome que deseja pesquisar: ");
     
-    scanf(" %[^\n]", nomeAluno);
+    scanf(" %[^\n]", nomeBusca);
+    tamNomeAlunoBusca = strlen(nomeBusca);
 
-    for (int j = 0; j < i; j++) {
-        if (strcmp(nomeAluno, v[i].nome)){            
-            printf("\nNome: %s\tMedia: %.2lf\t\t Estado: %s\n", v[i].nome, v[i].media, v[i].state);
-            resultadosEncontrados++;
-        }
+    for (j = 0; j < i; j++) {
+        x = 0;
+
+        tamNomeAlunoLista = strlen(v[j].nome);
+        strcpy(nomeAluno, v[j].nome);
+
+        while (x < tamNomeAlunoLista - tamNomeAlunoBusca) {
+            if (T == 0) {
+                y = 0;
+            }
+
+            while (y < tamNomeAlunoBusca) {
+                lowerAluno = tolower(nomeAluno[x + y]);
+                lowerBusca = tolower(nomeBusca[y]);
+
+                if (lowerAluno == lowerBusca) {
+                    T = 1;
+                    y++;    
+                }
+                else {
+                    break;
+                }
+            }
+
+            if (y == tamNomeAlunoBusca && T == 1) {
+                printf("\nNome: %-35s\tMedia: %4.2lf Estado: %s", v[j].nome, v[j].media, v[j].state);
+                resultadosEncontrados++;
+                break;
+            }
+            
+            x++;
+        }    
     }
 
     printf("\nForam encontrados: %d resultados compativeis.\n", resultadosEncontrados);
-
+    
+    time(resultadosEncontrados);
 }
 void lerArquivo(tipoAluno *v, int &i) {
     
@@ -120,8 +194,9 @@ void lerArquivo(tipoAluno *v, int &i) {
         }
                     
         fclose(ptrarq);
+        selectSort(v, i);
 
-        printf("\nO Arquivo %s foi aberto e lido com sucesso!!\nForam cadastrados %d novos alunos.\n", nomeArquivo, cadastrados);
+        printf("\nO Arquivo %s foi aberto e lido e ordenado com sucesso!!\nForam cadastrados %d novos alunos.\n", nomeArquivo, cadastrados);
     }
 
 }
