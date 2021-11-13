@@ -3,7 +3,7 @@
 void time(int i) {
     int time = 0;
 
-    if (0 > i && i < 10) {
+    if (i > 0) {
         time = 8;
     }
     else if (i > 10) {

@@ -1,0 +1,9 @@
+				Nome							RA			MEDIA FINAL 		NUMERO DE INSERCAO NA LISTA
+Ana Teixeira da Silva               		   658756 			6.13 			            6 
+Hudson Johansson                    		   445210 			10.00 			            7 
+Joaquim da Silva Santos             		   145678 			8.23 			            5 
+Juliana Pereira Trevo               		   982654 			8.57 			            8 
+Juliana Pereira Trevo               		   987654 			7.00 			            4 
+Scarlette Johansson                 		   345210 			8.56 			            3 
+
+Total de 6 alunos Aprovado.

@@ -1,0 +1,5 @@
+				Nome							RA			MEDIA FINAL 		NUMERO DE INSERCAO NA LISTA
+Joao da Silva Santos                		   345678 			5.08 			            1 
+Mariana Teixeira da Silva           		   758756 			5.08 			            2 
+
+Total de 2 alunos Reprovado.
